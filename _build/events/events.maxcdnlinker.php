@@ -3,8 +3,7 @@
 $events = array();
 
 $e = array(
-    'OnDocFormPrerender',
-    'OnDocFormSave'
+    'OnWebPagePrerender'
 );
 
 foreach ($e as $ev) {
