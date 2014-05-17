@@ -7,7 +7,7 @@ $action->fromArray(array(
     'parent' => '0',
     'controller' => 'index',
     'haslayout' => '1',
-    'lang_topics' => 'mcdn:default',
+    'lang_topics' => 'maxcdn:default',
     'assets' => '',
 ),'',true,true);
 

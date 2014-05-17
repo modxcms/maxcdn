@@ -24,6 +24,9 @@ class MaxCDNHomeManagerController extends MaxCDNManagerController {
      * combine and compress them if enabled in system settings.
      */
     public function loadCustomCssJs() {
+        $this->addJavascript($this->mcdn->config['jsUrl'].'mgr/widgets/combos.js');
+        $this->addJavascript($this->mcdn->config['jsUrl'].'mgr/widgets/rules.windows.js');
+        $this->addJavascript($this->mcdn->config['jsUrl'].'mgr/widgets/rules.grid.js');
         $this->addLastJavascript($this->mcdn->config['jsUrl'].'mgr/sections/home.js');
     }
 

@@ -1,8 +1,10 @@
 <?php
 
 $s = array(
-    //'admin_groups' => 'Administrator',
-    //'clear_cache' => true,
+    'alias' => '',
+    'consumer_key' => '',
+    'consumer_secret' => '',
+    'zone_id' => '',
 );
 
 $settings = array();
@@ -21,7 +23,7 @@ foreach ($s as $key => $value) {
     $settings['mcdn.'.$key]->fromArray(array(
         'value' => $value,
         'xtype' => $type,
-        'namespace' => 'mcdn',
+        'namespace' => 'maxcdn',
         'area' => $area
     ));
 }

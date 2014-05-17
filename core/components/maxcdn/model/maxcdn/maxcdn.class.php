@@ -43,14 +43,14 @@ class MaxCDN {
         ),$config);
 
         $modelPath = $this->config['modelPath'];
-        $this->modx->addPackage('maxcdn',$modelPath);
-        $this->modx->lexicon->load('mcdn:default');
+        $this->modx->addPackage('maxcdn',$modelPath, '');
+        $this->modx->lexicon->load('maxcdn:default');
         $this->debug = (bool)$this->modx->getOption('mcdn.debug',null,false);
         $this->autoload();
     }
 
-    protected function autoload() {
-        require_once $this->corePath.'model/maxcdn/vendor/autoload.php';
+    public function autoload() {
+        require_once $this->config['corePath'].'model/vendor/autoload.php';
     }
 
     public function authenticate() {
