@@ -1,15 +1,9 @@
 <?php
-/**
- * Edgecast Resource Plugin
- *
- * Appends a unique
- *
- */
-
 $event = $modx->event->name;
 switch ($event) {
     case 'OnDocFormPrerender':
-        $urlParameter = $modx->getOption('mcdn.urlPreviewParam', null, 'guid');
+        $modx->lexicon->load('maxcdn:default');
+        $urlParameter = $modx->getOption('mcdn.url_preview_param', null, 'guid');
 
         $modx->regClientStartupScript('
 				<script type="text/javascript">
@@ -38,7 +32,7 @@ switch ($event) {
 							btns.unshift({
 								xtype: "button"
 								,process: "update"
-								,text: "Save & Purge"
+								,text: "' . $modx->lexicon('mcdn.save_and_purge') . '"
 								,method: "remote"
 								,handler: function() {
 									if (!Ext.getCmp("modx-update-resource-purgecdn")) {
@@ -71,13 +65,13 @@ switch ($event) {
         break;
     case 'OnDocFormSave':
         if (isset($_POST['purge_cdn'])) {
-            $path = $modx->getOption('mcdn.core_path', null, $modx->getOption('core_path') . 'components/maxcdn/model/maxcdn/');
-            $maxcdn = $modx->getService('maxcdn','MaxCDN', $path);
-            try {
-                $maxcdn->authenticate();
-                $maxcdn->purgeFile($modx->makeUrl($_POST['id'], '', '', -1));
-            } (Exception $e) {
-                $modx->log(modX::LOG_LEVEL_ERROR, 'MaxCDN Plugin: Unable to purge resource ' . $_POST['id']);
+            $path = $modx->getOption('mcdn.core_path', null, $modx->getOption('core_path') . 'components/maxcdn/');
+            $maxcdn = $modx->getService('maxcdn','MaxCDN', $path.'model/maxcdn/');
+            $maxcdn->authenticate();
+            $response = $maxcdn->purgeFile($modx->makeUrl($_POST['id'], '', '', -1));
+            $response = $modx->fromJSON($response);
+            if ($response['code'] !== '200') {
+                $modx->log(modX::LOG_LEVEL_ERROR, $response['error']['type']. ': ' .$response['error']['message']);
             }
         }
         break;

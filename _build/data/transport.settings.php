@@ -5,6 +5,7 @@ $s = array(
     'consumer_key' => '',
     'consumer_secret' => '',
     'zone_id' => '',
+    'url_preview_param' => 'guid'
 );
 
 $settings = array();
