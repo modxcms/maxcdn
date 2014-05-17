@@ -13,7 +13,7 @@ class comboCDNGetListProcessor extends modProcessor {
             $domains = $this->modx->fromJSON($response);
 
             foreach ($domains['data']['customdomains'] as $domain) {
-                $list[]['cdn_url'] = 'http://'.$domain['custom_domain'];
+                $list[]['cdn_url'] = 'http://'.$domain['custom_domain'].'/';
             }
         }
         return $this->outputArray($list, count($list));
