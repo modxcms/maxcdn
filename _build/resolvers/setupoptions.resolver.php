@@ -7,6 +7,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
             'consumer_key',
             'consumer_secret',
             'zone_id',
+            'default_cdn_url',
             'url_preview_param',
             'enabled'
         );
