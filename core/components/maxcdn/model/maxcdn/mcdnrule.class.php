@@ -1,6 +1,11 @@
 <?php
 class mcdnRule extends xPDOSimpleObject {
     public function getRegex() {
-        return '/'.str_replace('/','\/',$this->get('input')).'/i';
+        $siteUrl = $this->xpdo->getOption('site_url');
+        $baseUrl = $this->xpdo->getOption('base_url');
+        $input = $this->get('input');
+        $input = str_replace(array('{site_url}', '{base_url}'), array($siteUrl, $baseUrl), $input);
+
+        return '/'.str_replace('/','\/',$input).'/i';
     }
 }
