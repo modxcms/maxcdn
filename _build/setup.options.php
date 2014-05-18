@@ -19,6 +19,10 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
             <input type="text" name="zone_id" id="mcdn_zone_id" width="300" value="" />
             <br /><br />
 
+            <label for="mcdn_default_cdn_url">Default CDN URL:</label>
+            <input type="text" name="default_cdn_url" id="mcdn_default_cdn_url" width="300" value="" />
+            <br /><br />
+
             <label for="mcdn_url_preview_param">URL Preview Parameter:</label>
             <input type="text" name="url_preview_param" id="mcdn_url_preview_param" width="300" value="" />
             <br /><br />
@@ -26,6 +30,10 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
             <label for="mcdn_enabled">Enable MaxCDN:</label>
             <input type="radio" name="enabled" value="1" checked="checked">Yes<br />
             <input type="radio" name="enabled" value="0">No
+
+            <label for="mcdn_enabled">Install Default Rules:</label>
+            <input type="radio" name="rules" value="1" checked="checked">Yes<br />
+            <input type="radio" name="rules" value="0">No
 
         ';
 

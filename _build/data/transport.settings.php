@@ -5,6 +5,7 @@ $s = array(
     'consumer_key' => '',
     'consumer_secret' => '',
     'zone_id' => '',
+    'default_cdn_url' => '',
     'url_preview_param' => 'guid',
     'enabled' => true,
     'resource_inclusion_tv' => ''

@@ -22,6 +22,50 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
             }
         }
 
+        if ($options['rules'] == 1) {
+            $modelPath = $modx->getOption('mcdn.core_path',null,$modx->getOption('core_path').'components/maxcdn/').'model/';
+            $modx->addPackage('maxcdn',$modelPath, '');
+
+            $rules = array();
+            $rules['site_url'] = array(
+                'name' => 'Site URL src and href links',
+                'description' => 'Replace src and href links that start with the site URL',
+                'content_type' => 1,
+                'all_contexts' => 1,
+                'input' => '((?:src|href)=")({site_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")',
+                'output' => '{match1}{cdn_url}{match3}',
+                'cdn_url' => !empty($options['default_cdn_url']) ? 'http://' . $options['default_cdn_url'] . '/' : '',
+                'sortorder' => 0,
+                'disabled' => 0
+            );
+            $rules['base_url'] = array(
+                'name' => 'Base URL src and href links',
+                'description' => 'Replace src and href links that start with the base URL',
+                'content_type' => 1,
+                'all_contexts' => 1,
+                'input' => '((?:src|href)=")({base_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")',
+                'output' => '{match1}{cdn_url}{match3}',
+                'cdn_url' => !empty($options['default_cdn_url']) ? 'http://' . $options['default_cdn_url'] . '/' : '',
+                'sortorder' => 0,
+                'disabled' => 0
+            );
+            $rules['relative_url'] = array(
+                'name' => 'Relative URL src and href links',
+                'description' => 'Replace relative src and href links',
+                'content_type' => 1,
+                'all_contexts' => 1,
+                'input' => '((?:src|href)=")(?!(?:https?|/))(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")',
+                'output' => '{match1}{cdn_url}{match2}',
+                'cdn_url' => !empty($options['default_cdn_url']) ? 'http://' . $options['default_cdn_url'] . '/' : '',
+                'sortorder' => 0,
+                'disabled' => 0
+            );
+            foreach ($rules as $rule) {
+                $obj = $object->xpdo->newObject('mcdnRule', $rule);
+                $obj->save();
+            }
+        }
+
         $success= true;
         break;
     case xPDOTransport::ACTION_UPGRADE:
