@@ -1,0 +1,4 @@
+Changelog file for MaxCDN component.
+
+MaxCDN 1.0.0
+====================================
