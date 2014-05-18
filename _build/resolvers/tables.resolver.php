@@ -8,11 +8,11 @@ if ($object->xpdo) {
             $modx =& $object->xpdo;
 
             $modelPath = $modx->getOption('mcdn.core_path',null,$modx->getOption('core_path').'components/maxcdn/').'model/';
-            $modx->addPackage('mcdn',$modelPath);
+            $modx->addPackage('maxcdn',$modelPath, '');
             $manager = $modx->getManager();
             $loglevel = $modx->setLogLevel(modX::LOG_LEVEL_ERROR);
             
-            $objects = array();
+            $objects = array('mcdnRule');
             foreach ($objects as $obj) {
                 $manager->createObjectContainer($obj);
             }
