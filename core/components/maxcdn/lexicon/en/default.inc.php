@@ -5,6 +5,7 @@ $_lang['mcdn.desc'] = 'MaxCDN Control Panel';
 $_lang['mcdn.error.name_not_set'] = 'Name is not set';
 $_lang['mcdn.error.noresults'] = 'No Results';
 $_lang['mcdn.add_rule'] = 'Add Rule';
+$_lang['mcdn.all'] = 'All';
 $_lang['mcdn.all_contexts'] = 'All Contexts?';
 $_lang['mcdn.cdn_url'] = 'CDN URL';
 $_lang['mcdn.content_type'] = 'Content Type';

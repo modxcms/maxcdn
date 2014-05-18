@@ -48,6 +48,13 @@ MaxCDN.grid.Rules = function(config) {
             ,dataIndex: 'context'
             ,sortable: true
             ,width: 30
+            ,renderer: function(v) {
+                if (v == '') {
+                    return _('mcdn.all');
+                } else {
+                    return v;
+                }
+            }
         },{
             header: _('mcdn.name')
             ,dataIndex: 'name'
