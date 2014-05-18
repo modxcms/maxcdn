@@ -11,7 +11,15 @@ switch($eventName) {
 
         $c = $modx->newQuery('mcdnRule');
         $c->where(array(
-            'content_type' => $modx->resource->get('content_type')
+            'content_type' => $modx->resource->get('content_type'),
+            array(
+                array(
+                    'all_contexts' => true
+                ),
+                array(
+                    'OR:context:=' => $modx->context->get('key')
+                )
+            )
         ));
         $c->sortby('sortorder', 'ASC');
 

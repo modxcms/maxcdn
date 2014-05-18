@@ -21,6 +21,8 @@ MaxCDN.grid.Rules = function(config) {
             ,{name: 'name', type: 'string'}
             ,{name: 'description', type: 'string'}
             ,{name: 'content_type', type: 'int'}
+            ,{name: 'all_contexts', type: 'int'}
+            ,{name: 'context', type: 'string'}
             ,{name: 'content_type_name', type: 'string'}
             ,{name: 'input', type: 'string'}
             ,{name: 'output', type: 'string'}
@@ -41,8 +43,8 @@ MaxCDN.grid.Rules = function(config) {
             ,dataIndex: 'content_type_name'
             ,hidden: true
         },{
-            header: _('mcdn.id')
-            ,dataIndex: 'id'
+            header: _('mcdn.context')
+            ,dataIndex: 'context'
             ,sortable: true
             ,width: 30
         },{

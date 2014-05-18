@@ -15,7 +15,10 @@ class mcdnRuleCreateProcessor extends modObjectCreateProcessor {
         if (empty($key)) {
             $this->addFieldError('name',$this->modx->lexicon('mcdn.error.name_not_set'));
         }
-
+        $this->setCheckbox('all_contexts', true);
+        if ($this->getProperty('all_contexts')) {
+            $this->setProperty('context', '');
+        }
         return parent::beforeSet();
     }
 }

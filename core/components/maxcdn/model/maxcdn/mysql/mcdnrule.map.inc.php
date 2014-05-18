@@ -9,6 +9,8 @@ $xpdo_meta_map['mcdnRule']= array (
     'name' => '',
     'description' => '',
     'content_type' => NULL,
+    'all_contexts' => NULL,
+    'context' => '',
     'input' => '',
     'output' => '',
     'zone' => NULL,
@@ -39,6 +41,23 @@ $xpdo_meta_map['mcdnRule']= array (
       'phptype' => 'integer',
       'null' => true,
       'attributes' => 'unsigned',
+    ),
+    'all_contexts' => 
+    array (
+      'dbtype' => 'tinyint',
+      'precision' => '1',
+      'phptype' => 'integer',
+      'null' => false,
+      'defaults' => '1',
+      'attributes' => 'unsigned',
+    ),
+    'context' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
     ),
     'input' => 
     array (
@@ -123,6 +142,38 @@ $xpdo_meta_map['mcdnRule']= array (
       'columns' => 
       array (
         'content_type' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
+    'all_contexts' => 
+    array (
+      'alias' => 'all_contexts',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'all_contexts' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
+    'context' => 
+    array (
+      'alias' => 'context',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'context' => 
         array (
           'length' => '',
           'collation' => 'A',

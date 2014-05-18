@@ -4,6 +4,8 @@
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
         <field key="description" dbtype="text" phptype="string" null="false" default="" />
         <field key="content_type" dbtype="int" precision="11" phptype="integer" null="true" attributes="unsigned" />
+        <field key="all_contexts" dbtype="tinyint" precision="1" phptype="integer" null="false" defaults="1" attributes="unsigned" />
+        <field key="context" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
         <field key="input" dbtype="text" phptype="string" null="false" default="" />
         <field key="output" dbtype="text" phptype="string" null="false" default="" />
         <field key="zone" dbtype="int" precision="11" phptype="integer" null="true" attributes="unsigned" />
@@ -19,6 +21,12 @@
         <index alias="content_type" name="content_type" primary="false" unique="false" type="BTREE">
             <column key="content_type" length="" collation="A" null="false" />
         </index>
+        <index alias="all_contexts" name="all_contexts" primary="false" unique="false" type="BTREE">
+            <column key="all_contexts" length="" collation="A" null="false" />
+        </index>
+        <index alias="context" name="context" primary="false" unique="false" type="BTREE">
+            <column key="context" length="" collation="A" null="false" />
+        </index>
         <index alias="zone" name="zone" primary="false" unique="false" type="BTREE">
             <column key="zone" length="" collation="A" null="false" />
         </index>
@@ -29,4 +37,3 @@
         <aggregate alias="ContentType" class="modContentType" local="content_type" foreign="id" owner="local" cardinality="one" />
     </object>
 </model>
-

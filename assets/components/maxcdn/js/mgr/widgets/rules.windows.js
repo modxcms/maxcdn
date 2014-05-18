@@ -52,6 +52,25 @@ MaxCDN.window.Rule = function(config) {
                         ,fieldLabel: _('mcdn.content_type')
                         ,allowBlank: false
                         ,anchor: '100%'
+                    },{
+                        xtype: 'checkbox'
+                        ,id: config.id + 'mcdn-checkbox-all-contexts'
+                        ,name: 'all_contexts'
+                        ,fieldLabel: _('mcdn.all_contexts')
+                        ,anchor: '100%'
+                        ,handler: function(o,v) {
+                            if (v == true) {
+                                Ext.getCmp(config.id + 'mcdn-combo-context').disable();
+                            } else {
+                                Ext.getCmp(config.id + 'mcdn-combo-context').enable();
+                            }
+                        }
+                    },{
+                        xtype: 'modx-combo-context'
+                        ,id: config.id + 'mcdn-combo-context'
+                        ,name: 'context'
+                        ,fieldLabel: _('mcdn.context')
+                        ,anchor: '100%'
                     }]
                 }]
             },{
@@ -70,10 +89,22 @@ MaxCDN.window.Rule = function(config) {
                 ,name: 'output'
                 ,fieldLabel: _('mcdn.output')
                 ,anchor: '100%'
-            }],
-            keys: [] /*prevent enter in textarea from firing submit */
+            }]
+            ,keys: [] /*prevent enter in textarea from firing submit */
         });
     MaxCDN.window.Rule.superclass.constructor.call(this,config);
+    this.on('beforeshow', this.setup, this);
 };
-Ext.extend(MaxCDN.window.Rule,MODx.Window);
+Ext.extend(MaxCDN.window.Rule,MODx.Window, {
+    setup: function(w) {
+        if (w.config.isUpdate !== true) {
+            Ext.getCmp(w.config.id + 'mcdn-checkbox-all-contexts').setValue(true);
+            Ext.getCmp(w.config.id + 'mcdn-combo-context').disable();
+        } else {
+            if (Ext.getCmp(w.config.id + 'mcdn-checkbox-all-contexts').getValue() == true) {
+                Ext.getCmp(w.config.id + 'mcdn-combo-context').disable();
+            }
+        }
+    }
+});
 Ext.reg('mcdn-window-rule',MaxCDN.window.Rule);
