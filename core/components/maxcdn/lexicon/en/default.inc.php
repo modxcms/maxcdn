@@ -16,5 +16,6 @@ $_lang['mcdn.remove_rule'] = 'Remove Rule';
 $_lang['mcdn.remove_rule.confirm'] = 'Are you sure you want to remove this rule?';
 $_lang['mcdn.rule'] = 'Rule';
 $_lang['mcdn.rules'] = 'Rules';
+$_lang['mcdn.save_and_purge'] = 'Save and Purge CDN';
 $_lang['mcdn.sortorder'] = 'Sort Order';
 $_lang['mcdn.update_rule'] = 'Update Rule';
