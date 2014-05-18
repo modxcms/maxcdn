@@ -54,6 +54,11 @@ MaxCDN.window.Rule = function(config) {
                         ,anchor: '100%'
                     },{
                         xtype: 'checkbox'
+                        ,name: 'disabled'
+                        ,fieldLabel: _('mcdn.disabled')
+                        ,anchor: '100%'
+                    },{
+                        xtype: 'checkbox'
                         ,id: config.id + 'mcdn-checkbox-all-contexts'
                         ,name: 'all_contexts'
                         ,fieldLabel: _('mcdn.all_contexts')

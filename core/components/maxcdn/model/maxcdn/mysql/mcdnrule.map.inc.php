@@ -15,6 +15,7 @@ $xpdo_meta_map['mcdnRule']= array (
     'output' => '',
     'zone' => NULL,
     'cdn_url' => '',
+    'disabled' => 0,
     'sortorder' => 0,
   ),
   'fieldMeta' => 
@@ -88,6 +89,15 @@ $xpdo_meta_map['mcdnRule']= array (
       'phptype' => 'string',
       'null' => false,
       'default' => '',
+    ),
+    'disabled' => 
+    array (
+      'dbtype' => 'tinyint',
+      'precision' => '1',
+      'phptype' => 'integer',
+      'null' => false,
+      'default' => 0,
+      'attributes' => 'unsigned',
     ),
     'sortorder' => 
     array (
@@ -190,6 +200,22 @@ $xpdo_meta_map['mcdnRule']= array (
       'columns' => 
       array (
         'zone' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
+    'disabled' => 
+    array (
+      'alias' => 'disabled',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'disabled' => 
         array (
           'length' => '',
           'collation' => 'A',

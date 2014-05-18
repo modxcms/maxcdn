@@ -10,6 +10,7 @@ $_lang['mcdn.cdn_url'] = 'CDN URL';
 $_lang['mcdn.content_type'] = 'Content Type';
 $_lang['mcdn.context'] = 'Context';
 $_lang['mcdn.description'] = 'Description';
+$_lang['mcdn.disabled'] = 'Rule Disabled?';
 $_lang['mcdn.id'] = 'ID';
 $_lang['mcdn.input'] = 'Input Rule';
 $_lang['mcdn.output'] = 'Output Format';

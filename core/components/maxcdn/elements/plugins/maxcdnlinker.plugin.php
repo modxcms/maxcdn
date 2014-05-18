@@ -12,6 +12,7 @@ switch($eventName) {
         $c = $modx->newQuery('mcdnRule');
         $c->where(array(
             'content_type' => $modx->resource->get('content_type'),
+            'disabled' => false,
             array(
                 array(
                     'all_contexts' => true

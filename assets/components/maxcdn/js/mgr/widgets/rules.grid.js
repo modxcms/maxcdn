@@ -28,6 +28,7 @@ MaxCDN.grid.Rules = function(config) {
             ,{name: 'output', type: 'string'}
             ,{name: 'zone', type: 'string'}
             ,{name: 'cdn_url', type: 'string'}
+            ,{name: 'disabled', type: 'int'}
             ,{name: 'sortorder', type: 'int'}
         ]
         ,grouping: true
@@ -51,12 +52,18 @@ MaxCDN.grid.Rules = function(config) {
             header: _('mcdn.name')
             ,dataIndex: 'name'
             ,sortable: true
-            ,width: 200
+            ,width: 175
         },{
             header: _('mcdn.description')
             ,dataIndex: 'description'
             ,sortable: true
             ,width: 200
+        },{
+            header: _('mcdn.disabled')
+            ,dataIndex: 'disabled'
+            ,sortable: true
+            ,width: 75
+            ,renderer: this.rendYesNo
         },{
             header: _('mcdn.sortorder')
             ,dataIndex: 'sortorder'
