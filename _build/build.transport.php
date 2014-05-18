@@ -23,7 +23,7 @@ set_time_limit(0);
 define('PKG_NAME','MaxCDN');
 define('PKG_NAME_LOWER',strtolower(PKG_NAME));
 define('PKG_VERSION','1.0');
-define('PKG_RELEASE','alpha4');
+define('PKG_RELEASE','alpha5');
 
 $root = dirname(dirname(__FILE__)).'/';
 $sources= array (
@@ -130,6 +130,9 @@ $vehicle->resolve('file',array(
 $vehicle->resolve('php',array(
     'source' => $sources['resolvers'] . 'tables.resolver.php',
 ));
+$vehicle->resolve('php',array(
+    'source' => $sources['resolvers'] . 'setupoptions.resolver.php',
+));
 
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in resolvers.'); flush();
 $builder->putVehicle($vehicle);
@@ -139,6 +142,9 @@ $builder->setPackageAttributes(array(
     'license' => file_get_contents($sources['docs'] . 'license.txt'),
     'readme' => file_get_contents($sources['docs'] . 'readme.txt'),
     'changelog' => file_get_contents($sources['docs'] . 'changelog.txt'),
+    'setup-options' => array(
+        'source' => $sources['build'].'setup.options.php',
+    ),
 ));
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in package attributes.'); flush();
 
