@@ -2,6 +2,13 @@
 $event = $modx->event->name;
 switch ($event) {
     case 'OnDocFormPrerender':
+        $path = $modx->getOption('mcdn.core_path', null, $modx->getOption('core_path') . 'components/maxcdn/');
+        $maxcdn = $modx->getService('maxcdn','MaxCDN', $path.'model/maxcdn/');
+
+        if ($maxcdn->isDisabled()) {
+            break;
+        }
+
         $modx->lexicon->load('maxcdn:default');
         $urlParameter = $modx->getOption('mcdn.url_preview_param', null, 'guid');
 
@@ -67,11 +74,17 @@ switch ($event) {
         if (isset($_POST['purge_cdn'])) {
             $path = $modx->getOption('mcdn.core_path', null, $modx->getOption('core_path') . 'components/maxcdn/');
             $maxcdn = $modx->getService('maxcdn','MaxCDN', $path.'model/maxcdn/');
-            $maxcdn->authenticate();
-            $response = $maxcdn->purgeFile($modx->makeUrl($_POST['id'], '', '', -1));
-            $response = $modx->fromJSON($response);
-            if ($response['code'] !== '200') {
-                $modx->log(modX::LOG_LEVEL_ERROR, $response['error']['type']. ': ' .$response['error']['message']);
+
+            if ($maxcdn->isDisabled()) {
+                break;
+            }
+
+            if($maxcdn->authenticate()) {
+                $response = $maxcdn->purgeFile($modx->makeUrl($_POST['id'], '', '', -1));
+                $response = $modx->fromJSON($response);
+                if ($response['code'] !== '200') {
+                    $modx->log(modX::LOG_LEVEL_ERROR, $response['error']['type']. ': ' .$response['error']['message']);
+                }
             }
         }
         break;

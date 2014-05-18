@@ -64,6 +64,16 @@ class MaxCDN {
         return false;
     }
 
+    public function isDisabled($checkSSL = false) {
+        if ($this->modx->getOption('mcdn.enabled', null, false) == false) {
+            return true;
+        }
+        if ($checkSSL && isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+            return true;
+        }
+        return false;
+    }
+
     public function purge($params = array()) {
         $zone = $this->modx->getOption('mcdn.zone_id', null, '');
         if ($this->api == null) {
