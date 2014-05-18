@@ -46,7 +46,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                 'input' => '((?:src|href)=")({base_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")',
                 'output' => '{match1}{cdn_url}{match3}',
                 'cdn_url' => !empty($options['default_cdn_url']) ? 'http://' . $options['default_cdn_url'] . '/' : '',
-                'sortorder' => 0,
+                'sortorder' => 1,
                 'disabled' => 0
             );
             $rules['relative_url'] = array(
@@ -57,7 +57,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                 'input' => '((?:src|href)=")(?!(?:https?|/))(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")',
                 'output' => '{match1}{cdn_url}{match2}',
                 'cdn_url' => !empty($options['default_cdn_url']) ? 'http://' . $options['default_cdn_url'] . '/' : '',
-                'sortorder' => 0,
+                'sortorder' => 2,
                 'disabled' => 0
             );
             foreach ($rules as $rule) {
