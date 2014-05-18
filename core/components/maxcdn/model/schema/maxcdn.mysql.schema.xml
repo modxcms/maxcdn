@@ -8,7 +8,6 @@
         <field key="context" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
         <field key="input" dbtype="text" phptype="string" null="false" default="" />
         <field key="output" dbtype="text" phptype="string" null="false" default="" />
-        <field key="zone" dbtype="int" precision="11" phptype="integer" null="true" attributes="unsigned" />
         <field key="cdn_url" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
         <field key="disabled" dbtype="tinyint" precision="1" phptype="integer" null="false" default="0" attributes="unsigned" />
         <field key="sortorder" dbtype="int" precision="11" phptype="integer" null="false" default="0" attributes="unsigned" />
@@ -27,9 +26,6 @@
         </index>
         <index alias="context" name="context" primary="false" unique="false" type="BTREE">
             <column key="context" length="" collation="A" null="false" />
-        </index>
-        <index alias="zone" name="zone" primary="false" unique="false" type="BTREE">
-            <column key="zone" length="" collation="A" null="false" />
         </index>
         <index alias="disabled" name="disabled" primary="false" unique="false" type="BTREE">
             <column key="disabled" length="" collation="A" null="false" />
