@@ -5,9 +5,9 @@ switch($eventName) {
         $path = $modx->getOption('mcdn.core_path', null, $modx->getOption('core_path') . 'components/maxcdn/');
         $maxcdn = $modx->getService('maxcdn','MaxCDN', $path.'/model/maxcdn/');
 
-        if ($maxcdn->isDisabled(true)) {
+        if ($maxcdn->isDisabled(true, true)) {
             break;
-        }``
+        }
 
         $c = $modx->newQuery('mcdnRule');
         $c->where(array(

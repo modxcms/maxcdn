@@ -6,7 +6,8 @@ $s = array(
     'consumer_secret' => '',
     'zone_id' => '',
     'url_preview_param' => 'guid',
-    'enabled' => true
+    'enabled' => true,
+    'resource_inclusion_tv' => ''
 );
 
 $settings = array();

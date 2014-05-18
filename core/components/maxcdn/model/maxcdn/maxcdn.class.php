@@ -64,12 +64,21 @@ class MaxCDN {
         return false;
     }
 
-    public function isDisabled($checkSSL = false) {
+    public function isDisabled($checkSSL = false, $checkTV = false) {
         if ($this->modx->getOption('mcdn.enabled', null, false) == false) {
             return true;
         }
         if ($checkSSL && isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
             return true;
+        }
+        if ($checkTV) {
+            $tvName = $this->modx->getOption('mcdn.resource_inclusion_tv', null, '');
+            if (!empty($tvName) && $this->modx->resource !== null) {
+                $include = $this->modx->resource->getTVValue($tvName);
+                if (!$include) {
+                    return true;
+                }
+            }
         }
         return false;
     }
