@@ -7,6 +7,12 @@ class comboCDNGetListProcessor extends modProcessor {
 
     public function process() {
         $list = array();
+
+        $defaultCDN = $this->modx->getOption('mcdn.default_cdn_url', null, '');
+        if (!empty($defaultCDN)) {
+            $list[]['cdn_url'] = 'http://'.$defaultCDN.'/';
+        }
+
         if($this->modx->mcdn->authenticate()) {
             $zone = $this->modx->getOption('mcdn.zone_id', null, '');
             $response = $this->modx->mcdn->api->get('/zones/pull/' . $zone . '/customdomains.json');
