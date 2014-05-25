@@ -8,6 +8,13 @@ $plugins[0]->set('name','MaxCDN Manager');
 $plugins[0]->set('description','Provides manager functionality for resources if resources are being cached to MaxCDN.');
 $plugins[0]->set('plugincode', getSnippetContent($sources['plugins'] . 'maxcdn.plugin.php'));
 $plugins[0]->set('category', 0);
+switch ($options[xPDOTransport::PACKAGE_ACTION]) {
+    case xPDOTransport::ACTION_INSTALL:
+        $plugins[0]->set('disabled', 1);
+        break;
+    default:
+        break;
+}
 
 $events = include $sources['events'].'events.maxcdn.php';
 if (is_array($events) && !empty($events)) {
