@@ -85,7 +85,7 @@ $xpdo_meta_map['mcdnRule']= array (
     'scheme' => 
     array (
       'dbtype' => 'varchar',
-      'precision' => '5',
+      'precision' => '8',
       'phptype' => 'string',
       'null' => false,
       'default' => '',
