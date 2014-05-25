@@ -10,7 +10,7 @@ class comboCDNGetListProcessor extends modProcessor {
 
         $defaultCDN = $this->modx->getOption('mcdn.default_cdn_url', null, '');
         if (!empty($defaultCDN)) {
-            $list[]['cdn_url'] = 'http://'.$defaultCDN.'/';
+            $list[]['cdn_url'] = $defaultCDN;
         }
 
         if($this->modx->mcdn->authenticate()) {
@@ -19,7 +19,7 @@ class comboCDNGetListProcessor extends modProcessor {
             $domains = $this->modx->fromJSON($response);
 
             foreach ($domains['data']['customdomains'] as $domain) {
-                $list[]['cdn_url'] = 'http://'.$domain['custom_domain'].'/';
+                $list[]['cdn_url'] = $domain['custom_domain'];
             }
         }
         return $this->outputArray($list, count($list));

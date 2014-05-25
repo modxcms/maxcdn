@@ -32,6 +32,18 @@ MaxCDN.window.Rule = function(config) {
                         ,name: 'description'
                         ,fieldLabel: _('mcdn.description')
                         ,anchor: '100%'
+                    },{
+                        xtype: 'mcdn-combo-scheme'
+                        ,name: 'scheme'
+                        ,fieldLabel: _('mcdn.scheme')
+                        ,allowBlank: false
+                        ,anchor: '50%'
+                    },{
+                        xtype: 'mcdn-combo-cdnurls'
+                        ,name: 'cdn_url'
+                        ,fieldLabel: _('mcdn.cdn_url')
+                        ,allowBlank: false
+                        ,anchor: '100%'
                     }]
                 },{
                     columnWidth: 0.25,
@@ -63,6 +75,7 @@ MaxCDN.window.Rule = function(config) {
                         ,name: 'all_contexts'
                         ,fieldLabel: _('mcdn.all_contexts')
                         ,anchor: '100%'
+                        ,itemCls: 'mcdn-all-contexts'
                         ,handler: function(o,v) {
                             if (v == true) {
                                 Ext.getCmp(config.id + 'mcdn-combo-context').disable();
@@ -78,12 +91,6 @@ MaxCDN.window.Rule = function(config) {
                         ,anchor: '100%'
                     }]
                 }]
-            },{
-                xtype: 'mcdn-combo-cdnurls'
-                ,name: 'cdn_url'
-                ,fieldLabel: _('mcdn.cdn_url')
-                ,allowBlank: false
-                ,anchor: '100%'
             },{
                 xtype: 'textarea'
                 ,name: 'input'

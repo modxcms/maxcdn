@@ -14,6 +14,7 @@ $xpdo_meta_map['mcdnRule']= array (
     'input' => '',
     'output' => '',
     'cdn_url' => '',
+    'scheme' => '',
     'disabled' => 0,
     'sortorder' => 0,
   ),
@@ -77,6 +78,14 @@ $xpdo_meta_map['mcdnRule']= array (
     array (
       'dbtype' => 'varchar',
       'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'scheme' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '5',
       'phptype' => 'string',
       'null' => false,
       'default' => '',

@@ -1,5 +1,5 @@
 --------------------
-3PC: MaxCDN
+MODX MaxCDN Toolkit
 --------------------
 Version: 1.0
 Author: Garry Nutting <garry@modx.com>

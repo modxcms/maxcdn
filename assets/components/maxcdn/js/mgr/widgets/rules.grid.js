@@ -27,6 +27,7 @@ MaxCDN.grid.Rules = function(config) {
             ,{name: 'input', type: 'string'}
             ,{name: 'output', type: 'string'}
             ,{name: 'zone', type: 'string'}
+            ,{name: 'scheme', type: 'string'}
             ,{name: 'cdn_url', type: 'string'}
             ,{name: 'disabled', type: 'int'}
             ,{name: 'sortorder', type: 'int'}

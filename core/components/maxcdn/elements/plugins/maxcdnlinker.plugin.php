@@ -32,7 +32,7 @@ switch($eventName) {
                     if ($k == 0) continue;
                     $output = str_replace('{match'.$k.'}', $v, $output);
                 }
-                $output = str_replace('{cdn_url}', $rule->get('cdn_url'), $output);
+                $output = str_replace('{cdn_url}', $rule->getCdnUrl(), $output);
                 return $output;
             };
 

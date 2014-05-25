@@ -82,4 +82,8 @@ __Note: If you are using the full-page caching strategy, you can still use the R
 
 ## SSL Support
 
-SSL Support is coming soon.
+When adding a rule, you can select the scheme to use for the CDN URL from one of the following: HTTP, HTTPS, or Schemeless.
+
+Custom SSL domains can only be added in the MaxCDN Control Panel if you have the EdgeSSL add-on however all MaxCDN accounts can make use of the Shared SSL domain if you enable it in the MaxCDN Control Panel. Details on the Shared SSL can be found here: http://support.maxcdn.com/howto/setup-shared-ssl/
+
+__Note: Do not specify HTTPS on any domains that you haven't set up either via the Shared SSL option or the EdgeSSL add-on in the MaxCDN Control Panel.__
