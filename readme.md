@@ -43,22 +43,22 @@ __1. Site URL src and href links__
 
 Replace src and href links that start with the site URL.
 
-Input Rule: ``((?:src|href)=")({site_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")``
-Output Format: ``{match1}{cdn_url}{match3}``
+* Input Rule: ``((?:src|href)=")({site_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")``
+* Output Format: ``{match1}{cdn_url}{match3}``
 
 __2. Base URL src and href links__
 
 Replace src and href links that start with the base URL.
 
-Input Rule: ``((?:src|href)=")({base_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")``
-Output Format: ``{match1}{cdn_url}{match3}``
+* Input Rule: ``((?:src|href)=")({base_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")``
+* Output Format: ``{match1}{cdn_url}{match3}``
 
 __3. Relative URL src and href links__
 
 Replace relative src and href links.
 
-Input Rule: ``((?:src|href)=")(?!(?:https?|/))(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")``
-Output Format: ``{match1}{cdn_url}{match2}``
+* Input Rule: ``((?:src|href)=")(?!(?:https?|/))(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")``
+* Output Format: ``{match1}{cdn_url}{match2}``
 
 ### Full-Page Caching
 
