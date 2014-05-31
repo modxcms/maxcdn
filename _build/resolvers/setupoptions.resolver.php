@@ -33,9 +33,10 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                 'description' => 'Replace src and href links that start with the site URL',
                 'content_type' => 1,
                 'all_contexts' => 1,
-                'input' => '((?:src|href)=")({site_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")',
-                'output' => '{match1}{cdn_url}{match3}',
-                'cdn_url' => !empty($options['default_cdn_url']) ? 'http://' . $options['default_cdn_url'] . '/' : '',
+                'input' => '((?:<(?:a|link|img|script)\b)[^>]*?(?:href|src)=")(?:{site_url})(.*?\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css).*?")',
+                'output' => '{match1}{cdn_url}{match2}',
+                'scheme' => 'http',
+                'cdn_url' => !empty($options['default_cdn_url']) ? $options['default_cdn_url'] : '',
                 'sortorder' => 0,
                 'disabled' => 0
             );
@@ -44,9 +45,10 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                 'description' => 'Replace src and href links that start with the base URL',
                 'content_type' => 1,
                 'all_contexts' => 1,
-                'input' => '((?:src|href)=")({base_url})(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")',
-                'output' => '{match1}{cdn_url}{match3}',
-                'cdn_url' => !empty($options['default_cdn_url']) ? 'http://' . $options['default_cdn_url'] . '/' : '',
+                'input' => '((?:<(?:a|link|img|script)\b)[^>]*?(?:href|src)=")(?:{base_url})(.*?\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css).*?")',
+                'output' => '{match1}{cdn_url}{match2}',
+                'scheme' => 'http',
+                'cdn_url' => !empty($options['default_cdn_url']) ? $options['default_cdn_url'] : '',
                 'sortorder' => 1,
                 'disabled' => 0
             );
@@ -55,9 +57,10 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                 'description' => 'Replace relative src and href links',
                 'content_type' => 1,
                 'all_contexts' => 1,
-                'input' => '((?:src|href)=")(?!(?:https?|/))(.*\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css)")',
+                'input' => '((?:<(?:a|link|img|script)\b)[^>]*?(?:href|src)=")(?!(?:https?|/))(.*?\.(?:jpe?g|png|gif|ttf|otf|svg|woff|xml|js|css).*?")',
                 'output' => '{match1}{cdn_url}{match2}',
-                'cdn_url' => !empty($options['default_cdn_url']) ? 'http://' . $options['default_cdn_url'] . '/' : '',
+                'scheme' => 'http',
+                'cdn_url' => !empty($options['default_cdn_url']) ? $options['default_cdn_url'] : '',
                 'sortorder' => 2,
                 'disabled' => 0
             );
