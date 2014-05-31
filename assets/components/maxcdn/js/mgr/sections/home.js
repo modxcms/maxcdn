@@ -62,6 +62,9 @@ MaxCDN.page.Home = function(config) {
                         xtype: 'mcdn-grid-rules'
                         ,preventRender: true
                     }]
+                },{
+                    title: _('mcdn.purge')
+                    ,items: this.getPurgeFields(config)
                 }]
                 ,stateful: true
                 ,stateId: 'mcdn-page-home'
@@ -85,6 +88,80 @@ MaxCDN.page.Home = function(config) {
     MaxCDN.page.Home.superclass.constructor.call(this,config);
 };
 Ext.extend(MaxCDN.page.Home,MODx.Component,{
+    getPurgeFields: function(config) {
+        config.id = config.id || Ext.id();
+        var s = [{
+            layout:'form'
+            ,border: false
+            ,anchor: '100%'
+            ,defaults: {
+                labelSeparator: ''
+                ,labelAlign: 'top'
+                ,border: false
+                ,layout: 'form'
+                ,msgTarget: 'under'
+            }
+            ,items:[{
+                defaults: {
+                    border: false
+                    ,msgTarget: 'under'
+                }
+                ,items: [{
+                    xtype: 'xcheckbox'
+                    ,boxLabel: _('mcdn.purge_all')
+                    ,hideLabel: true
+                    ,id: config.id + 'mcdn-purge-all'
+                    ,name: 'purge_all'
+                    ,value: 1
+                    ,checked: false
+                    ,handler: function(o,v) {
+                        if (v == true) {
+                            Ext.getCmp(config.id + 'mcdn-purge-files').disable().setValue('');
+                        } else {
+                            Ext.getCmp(config.id + 'mcdn-purge-files').enable();
+                        }
+                    }
+                },{
+                    xtype: 'textarea'
+                    ,fieldLabel: _('mcdn.purge_files')
+                    ,id: config.id + 'mcdn-purge-files'
+                    ,name: 'purge_files'
+                    ,anchor: '100%'
+                    ,width: '100%'
+                    ,height: 200
+                },{
+                    html: '<p><i>' + _('mcdn.purge_files_desc') + '</i></p>'
+                }]
+            }]
+            ,buttonAlign: 'center'
+            ,buttons: [{
+                xtype: 'button'
+                ,text: _('mcdn.purge')
+                ,scope: this
+                ,handler: this.purge
+            }]
+        }];
+        return s;
+    }
+
+    ,purge: function() {
+        Ext.Ajax.request({
+            url: MaxCDN.config.connectorUrl
+            ,params: {
+                action: 'mgr/files/purge'
+                ,purge_all: Ext.getCmp(this.config.id + 'mcdn-purge-all').getValue()
+                ,purge_files: Ext.getCmp(this.config.id + 'mcdn-purge-files').getValue()
+            }
+            ,scope: this
+            ,success: function(r) {
+                var response = Ext.decode(r.responseText);
+                MODx.msg.alert(_('mcdn.purge'), response.message);
+
+                Ext.getCmp(this.config.id + 'mcdn-purge-all').setValue(false);
+                Ext.getCmp(this.config.id + 'mcdn-purge-files').setValue('');
+            }
+        });
+    }
 
 });
 Ext.reg('mcdn-page-home', MaxCDN.page.Home);

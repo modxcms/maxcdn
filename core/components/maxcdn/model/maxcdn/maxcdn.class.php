@@ -107,5 +107,12 @@ class MaxCDN {
         );
         return $this->purge($zone, $params);
     }
+
+    public function purgeFiles($files) {
+        $params = array(
+            'files' => $files
+        );
+        return $this->purge($zone, $params);
+    }
 }
 
