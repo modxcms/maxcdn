@@ -134,6 +134,18 @@ Ext.extend(MaxCDN.grid.Rules,MODx.grid.Grid,{
         win.setValues(record);
         win.show();
     }
+    ,duplicateRule: function() {
+        MODx.Ajax.request({
+            url: MaxCDN.config.connectorUrl
+            ,params: {
+                action: 'mgr/rules/duplicate'
+                ,id: this.menu.record.id
+            }
+            ,listeners: {
+                'success': {fn:this.refresh,scope:this}
+            }
+        });
+    }
     ,removeRule: function() {
         var id = this.menu.record.id;
         MODx.msg.confirm({
@@ -158,6 +170,10 @@ Ext.extend(MaxCDN.grid.Rules,MODx.grid.Grid,{
         m.push({
             text: _('mcdn.update_rule')
             ,handler: this.updateRule
+            ,scope: this
+        },'-',{
+            text: _('mcdn.duplicate_rule')
+            ,handler: this.duplicateRule
             ,scope: this
         },'-',{
             text: _('mcdn.remove_rule')
