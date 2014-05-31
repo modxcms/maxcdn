@@ -20,6 +20,7 @@ MaxCDN.page.Home = function(config) {
             ,border: false
             ,items: [{
                 xtype: 'modx-tabs'
+                ,id: 'mcdn-tabs'
                 ,width: '98%'
                 ,padding: 10
                 ,border: true
@@ -69,6 +70,14 @@ MaxCDN.page.Home = function(config) {
                     return {
                         activeTab:this.items.indexOf(this.getActiveTab())
                     };
+                }
+                ,listeners: {
+                    'tabchange': function(tp, t) {
+                        var idx = tp.items.indexOf(t);
+                        if (idx == 0) {
+                            refreshReporting();
+                        }
+                    }
                 }
             }]
         }]
