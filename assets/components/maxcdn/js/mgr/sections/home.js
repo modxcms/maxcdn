@@ -11,7 +11,7 @@ MaxCDN.page.Home = function(config) {
         ,border: false
         ,components: [{
             xtype: 'panel'
-            ,html: '<h2>'+_('mcdn')+'</h2>'
+            ,html: '<h2>'+_('mcdn.desc')+'</h2>'
             ,border: false
             ,cls: 'modx-page-header'
         },{
@@ -32,10 +32,33 @@ MaxCDN.page.Home = function(config) {
                     }
                 }
                 ,items: [{
+                    title: _('mcdn.reporting')
+                    ,items: [{
+                        html: '<h2 class="mcdn-logo"><img src=" ' + MaxCDN.config.assetsUrl + 'images/maxcdn-logo.png" /></h2>' +
+                            '<div class="mcdn-top-stat mcdn-top-stat-last">' +
+                            '<p class="mcdn-top-stat-title">' + _('mcdn.reporting_mb_transferred') + '</p>' +
+                            '<p class="mcdn-top-stat-figure" id="mcdn-mb-transferred"></p>' +
+                            '</div>' +
+                            '<div class="mcdn-top-stat">' +
+                            '<p class="mcdn-top-stat-title">' + _('mcdn.reporting_non_cache_hits') + '</p>' +
+                            '<p class="mcdn-top-stat-figure" id="mcdn-non-cache-hits"></p>' +
+                            '</div>' +
+                            '<div class="mcdn-top-stat">' +
+                            '<p class="mcdn-top-stat-title"> ' + _('mcdn.reporting_cache_hits') + '</p>' +
+                            '<p class="mcdn-top-stat-figure" id="mcdn-cache-hits"></p>' +
+                            '</div>' +
+                            '<div id="mcdn-chart-line-daily"></div>' +
+                            '<div id="mcdn-chart-bar-transfer"></div>' +
+                            '<div id="mcdn-chart-geo-nodes"></div>' +
+                            '<div id="mcdn-chart-pie-ratio"></div>' +
+                            '<div class="mcdn-clear"></div>' +
+                            '<div id="mcdn-table-popularfiles"></div>' +
+                            '<div class="mcdn-clear"></div><br />'
+                    }]
+                },{
                     title: _('mcdn.rules')
                     ,items: [{
                         html: '<p>'+_('mcdn.desc')+'</p><br />'
-                        ,border: false
                     },{
                         xtype: 'mcdn-grid-rules'
                         ,preventRender: true

@@ -16,6 +16,12 @@ class MaxCDN {
      * @var bool
      */
     public $debug = false;
+    /**
+     * @var array
+     */
+    public $cacheOptions = array(
+        xPDO::OPT_CACHE_KEY => 'maxcdn',
+    );
 
 
     /**

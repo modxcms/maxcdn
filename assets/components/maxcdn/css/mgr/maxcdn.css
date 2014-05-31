@@ -2,3 +2,91 @@
     margin-top: 11px;
 }
 
+.mcdn-logo {
+    float: left;
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 260px;
+    height: 42px;
+}
+
+.mcdn-top-stat {
+    display: table;
+    float: right;
+    min-width: 100px;
+    width: 200px;
+    border: 1px solid #aaa;
+    margin: 0 0 10px 10px;
+    height: 100px;
+    text-align: center;
+}
+
+.mcdn-top-stat-last {
+    margin-right: 10px;
+}
+
+.mcdn-top-stat-title {
+    display: table-row;
+    width: 100%;
+    padding: 4px 0 0 4px;
+    font-size: 16px;
+    font-style: italic;
+    float: left;
+    text-align: left;
+}
+
+.mcdn-top-stat-figure {
+    display: table-row;
+    font-size: 36px;
+}
+
+#mcdn-chart-line-daily {
+    clear: both;
+    min-width: 500px;
+    height: 250px;
+    background: #eee;
+    border: 1px solid #aaa;
+    margin: 0 10px 10px 10px;
+}
+
+#mcdn-chart-bar-transfer {
+    min-width: 500px;
+    height: 250px;
+    background: #eee;
+    border: 1px solid #aaa;
+    margin: 0 10px 10px 10px;
+}
+
+#mcdn-chart-pie-ratio {
+    display: inline-block;
+    float: right;
+    min-width: 200px;
+    height: 470px;
+    width: 33%;
+    border: 1px solid #aaa;
+    margin: 0 10px 10px 0;
+}
+
+#mcdn-chart-geo-nodes {
+    display: inline-block;
+    float: left;
+    min-width: 240px;
+    height: 470px;
+    width: 64%;
+    border: 1px solid #aaa;
+    margin: 0 0 10px 10px;
+}
+
+#mcdn-table-popularfiles {
+    min-width: 240px;
+    border: 1px solid #aaa;
+    margin: 0 10px 10px 10px;
+}
+
+.mcdn-popularfiles-cell {
+    font-size: 12px;
+}
+
+.mcdn-clear {
+    clear: both;
+}
