@@ -42,4 +42,21 @@ if (is_array($events) && !empty($events)) {
 }
 unset($events);
 
+/* create the plugin object */
+$plugins[2] = $modx->newObject('modPlugin');
+$plugins[2]->set('id',1);
+$plugins[2]->set('name','MaxCDN Purge on Clear Cache');
+$plugins[2]->set('description','Purges the MaxCDN Cache when selecting Clear Cache in the MODX Manager.');
+$plugins[2]->set('plugincode', getSnippetContent($sources['plugins'] . 'maxcdnpurgecache.plugin.php'));
+$plugins[2]->set('category', 0);
+
+$events = include $sources['events'].'events.maxcdnpurgecache.php';
+if (is_array($events) && !empty($events)) {
+    $plugins[2]->addMany($events);
+    $modx->log(xPDO::LOG_LEVEL_INFO,'Packaged in '.count($events).' Plugin Events for MaxCDN Purge.'); flush();
+} else {
+    $modx->log(xPDO::LOG_LEVEL_ERROR,'Could not find plugin events for MaxCDN Purge!');
+}
+unset($events);
+
 return $plugins;

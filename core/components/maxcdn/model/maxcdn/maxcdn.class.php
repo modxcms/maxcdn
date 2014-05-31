@@ -94,7 +94,11 @@ class MaxCDN {
         if ($this->api == null) {
             $this->authenticate();
         }
-        return $this->api->delete('zones/pull.json/' . $zone . '/cache/', $params);
+        if (!empty($params)) {
+            return $this->api->delete('/zones/pull.json/' . $zone . '/cache', $params);
+        } else {
+            return $this->api->delete('/zones/pull.json/' . $zone . '/cache');
+        }
     }
 
     public function purgeFile($file) {

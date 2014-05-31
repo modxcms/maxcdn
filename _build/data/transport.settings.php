@@ -8,7 +8,8 @@ $s = array(
     'default_cdn_url' => '',
     'url_preview_param' => 'guid',
     'enabled' => true,
-    'resource_inclusion_tv' => ''
+    'resource_inclusion_tv' => '',
+    'purge_on_clear_cache' => true
 );
 
 $settings = array();

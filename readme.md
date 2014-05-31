@@ -1,10 +1,11 @@
 # MODX MaxCDN Toolkit
 
 ## Introduction
-The MODX MaxCDN Toolkit provides the necessary elements to dynamically integrate MaxCDN with MODX. There are three elements to the toolkit:
+The MODX MaxCDN Toolkit provides the necessary elements to dynamically integrate MaxCDN with MODX. There are four elements to the toolkit:
 
 * __Rules Manager__: The Rules Manager allows for frontend rules to be specified via a regular expression syntax. These rules will allow the targetted link structures (such as src attributes) to be rewritten to point to your CDN URL.
 * __MaxCDN Linker Plugin__: The MaxCDN Linker plugin accesses the rules specified in the Rules Manager and dynamically rewrites the link structures on the frontend. See the Selective Caching section below.
+* __MaxCDN Purge on Clear Cache Plugin__: The Purge Cache plugin will send a 'purge all' request to MaxCDN when using the Clear Cache menu option in the MODX Manager. This plugin can be enabled or disabled via the mcdn.purge_on_clear_cache system setting.
 * __MaxCDN Manager Plugin__: The MaxCDN Manager plugin provides advanced manager integration. It is only applicable if you are using a MaxCDN Enterprise plan and are utilising the full-page caching implementation (covered below in the Full-Page Caching section). By default, this is disabled on install due to it's specific usage requirements.
 
 ## Pre-Requisites
