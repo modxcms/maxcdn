@@ -58,8 +58,6 @@ MaxCDN.page.Home = function(config) {
                 },{
                     title: _('mcdn.rules')
                     ,items: [{
-                        html: '<p>'+_('mcdn.desc')+'</p><br />'
-                    },{
                         xtype: 'mcdn-grid-rules'
                         ,preventRender: true
                     }]
