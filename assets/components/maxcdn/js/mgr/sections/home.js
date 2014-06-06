@@ -52,8 +52,6 @@ MaxCDN.page.Home = function(config) {
                             '<div id="mcdn-chart-bar-transfer"></div>' +
                             '<div id="mcdn-chart-geo-nodes"></div>' +
                             '<div id="mcdn-chart-pie-ratio"></div>' +
-                            '<div class="mcdn-clear"></div>' +
-                            '<div id="mcdn-table-popularfiles"></div>' +
                             '<div class="mcdn-clear"></div><br />'
                     }]
                 },{
