@@ -24,7 +24,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
             <br /><br />
 
             <label for="mcdn_url_preview_param">URL Preview Parameter:</label>
-            <input type="text" name="url_preview_param" id="mcdn_url_preview_param" width="300" value="" />
+            <input type="text" name="url_preview_param" id="mcdn_url_preview_param" width="300" value="guid" />
             <br /><br />
 
             <label for="mcdn_enabled">Enable MaxCDN:</label>
