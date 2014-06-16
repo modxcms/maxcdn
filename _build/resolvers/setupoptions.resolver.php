@@ -33,7 +33,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                 'description' => 'Replace src and href links that start with the site URL',
                 'content_type' => 1,
                 'all_contexts' => 1,
-                'input' => '((?:<(?:a|link|img|script)\b)[^>]*?(?:href|src)=")(?:{site_url})(.*?\.(?:jpe?g|png|gif||svg|xml|js|css).*?")',
+                'input' => '((?:<(?:a|link|img|script)\b)[^>]*?(?:href|src)=")(?:{site_url})(.*?\.(?:jpe?g|png|gif|svg|xml|js|css).*?")',
                 'output' => '{match1}{cdn_url}{match2}',
                 'scheme' => 'http://',
                 'cdn_url' => !empty($options['default_cdn_url']) ? $options['default_cdn_url'] : '',
