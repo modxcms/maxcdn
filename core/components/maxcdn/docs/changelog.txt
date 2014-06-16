@@ -2,3 +2,5 @@ Changelog file for MaxCDN component.
 
 MaxCDN 1.0.0
 ====================================
+
+- Remove webfonts from default rules as it requires webserver changes that not everyone may have access to (covered in readme.md)
