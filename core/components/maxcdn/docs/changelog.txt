@@ -1,5 +1,10 @@
 Changelog file for MaxCDN component.
 
+MaxCDN 1.0.1
+====================================
+
+- Add back in Popular Files to reporting dashboard
+
 MaxCDN 1.0.0
 ====================================
 

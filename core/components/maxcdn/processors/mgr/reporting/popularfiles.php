@@ -4,10 +4,9 @@ $data = $modx->cacheManager->get('popularfiles_monthly', $modx->mcdn->cacheOptio
 if (!$data) {
     if ($modx->mcdn->authenticate()) {
         $zone = $modx->getOption('mcdn.zone_id', null, '');
-        $stats = $modx->mcdn->api->get('/reports/popularfiles.json', array(
+        $stats = $modx->mcdn->api->get('/reports/' . $zone . '/popularfiles.json', array(
             'date_from' => date('Y-m-d', strtotime('-1 month')),
             'date_to' => date('Y-m-d'),
-            'bucket_id' => (int)$zone,
             'page_size' => 20
         ));
         $data = $modx->fromJSON($stats);

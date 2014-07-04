@@ -155,6 +155,31 @@ var topStats = function() {
     });
 }
 
+var popularFiles = function() {
+    Ext.Ajax.request({
+        url: MaxCDN.config.connectorUrl
+        ,params: {
+            'action' : 'mgr/reporting/popularfiles'
+        }
+        ,success: function(r) {
+            var json = JSON.parse(r.responseText);
+            var data = new google.visualization.DataTable();
+
+            data.addColumn(json.cols[0].type, json.cols[0].name);
+            data.addColumn(json.cols[1].type, json.cols[1].name);
+            data.addRows(json.rows);
+
+            var table = new google.visualization.Table(document.getElementById('mcdn-table-popularfiles'));
+            table.draw(data, {
+                showRowNumber: true
+                ,cssClassNames: {
+                    tableCell: 'mcdn-popularfiles-cell'
+                }
+            });
+        }
+    });
+}
+
 var nodes = function() {
     Ext.Ajax.request({
         url: MaxCDN.config.connectorUrl
@@ -191,6 +216,7 @@ var refreshReporting = function() {
     dailyChart();
     transferChart();
     ratioChart();
+    popularFiles();
     nodes();
 }
 
@@ -211,5 +237,6 @@ Ext.EventManager.onWindowResize(function() {
     dailyChart();
     transferChart();
     ratioChart();
+    popularFiles();
     nodes();
 });
