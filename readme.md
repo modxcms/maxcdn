@@ -15,6 +15,7 @@ The following pre-requisites are required prior to installation:
 * You have signed up for MaxCDN and configured your pull zone
 	* Signup [here](http://tracking.maxcdn.com/c/90953/3982/378?u=http%3A%2F%2Fwww.maxcdn.com%2Fmodx%2F) for the MODXers 25% discount
     * Configure a pull zone: http://support.maxcdn.com/howto/create-a-pull-zone/
+    * Implement the SEO options on your pull zone: http://support.maxcdn.com/howto/use-seo-with-cdn/
 * You have created an API application within MaxCDN's control panel
 	* Get an API Key/Secret pair: http://support.maxcdn.com/tutorials/create-an-api-idkey-pair/
 * PHP 5.3 or above
