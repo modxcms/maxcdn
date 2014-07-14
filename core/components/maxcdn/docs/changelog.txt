@@ -3,6 +3,8 @@ Changelog file for MaxCDN component.
 MaxCDN 1.0.1
 ====================================
 
+- Fix Base URL default rule to prevent matching of existing schemeless URLs
+- Stop default rules from being overly greedy on matching
 - Add back in Popular Files to reporting dashboard
 
 MaxCDN 1.0.0
