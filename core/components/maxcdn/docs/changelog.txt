@@ -1,5 +1,11 @@
 Changelog file for MaxCDN component.
 
+MaxCDN 1.0.2
+====================================
+
+- Fix default rules to sort out matching issue with image tags nested inside of anchor tags
+- Fix grid sorting issues when various combinations of content types and/or contexts are set in the rules
+
 MaxCDN 1.0.1
 ====================================
 
