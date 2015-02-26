@@ -36,7 +36,6 @@ MaxCDN.grid.Rules = function(config) {
         ,groupBy: 'content_type_name'
         ,singleText: _('mcdn.rule')
         ,pluralText: _('mcdn.rules')
-        ,sortBy: 'sortorder'
         ,paging: true
         ,remoteSort: true
         ,plugins: this.exp

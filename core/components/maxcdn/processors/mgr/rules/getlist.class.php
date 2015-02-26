@@ -21,6 +21,18 @@ class mcdnRulesGetListProcessor extends modObjectGetListProcessor {
     }
 
     /**
+     * @param xPDOQuery $c
+     * @return xPDOQuery
+     */
+    public function prepareQueryAfterCount(xPDOQuery $c) {
+        $c->sortby('content_type', 'ASC');
+        $c->sortby('context', 'ASC');
+        $c->sortby('sortorder', 'ASC');
+
+        return $c;
+    }
+
+    /**
      * Transform the xPDOObject derivative to an array;
      * @param xPDOObject $object
      * @return array
