@@ -46,21 +46,21 @@ __1. Site URL src and href links__
 
 Replace src and href links that start with the site URL.
 
-* Input Rule: ``((?:<(?:a|link|img|script)\b)[^>]*?(?:href|src)=")(?:{site_url})(.*?\.(?:jpe?g|png|gif|svg|xml|js|css)")``
+* Input Rule: ``((?:<(?:a|link|img|script)\b)(?:[^>]+)(?:href|src)=")(?:{site_url})([^>]+\.(?:jpe?g|png|gif|svg|xml|js|css)")``
 * Output Format: ``{match1}{cdn_url}{match2}``
 
 __2. Base URL src and href links__
 
 Replace src and href links that start with the base URL.
 
-* Input Rule: ``((?:<(?:a|link|img|script)\b)[^>]*?(?:href|src)=")(?:{base_url})([^/].*?\.(?:jpe?g|png|gif|svg|xml|js|css)")``
+* Input Rule: ``((?:<(?:a|link|img|script)\b)(?:[^>]+)(?:href|src)=")(?:{base_url})([^/][^>]+\.(?:jpe?g|png|gif|svg|xml|js|css)")``
 * Output Format: ``{match1}{cdn_url}{match2}``
 
 __3. Relative URL src and href links__
 
 Replace relative src and href links.
 
-* Input Rule: ``((?:<(?:a|link|img|script)\b)[^>]*?(?:href|src)=")(?!(?:https?|/))(.*?\.(?:jpe?g|png|gif|svg|xml|js|css)")``
+* Input Rule: ``((?:<(?:a|link|img|script)\b)(?:[^>]+)(?:href|src)=")(?!(?:https?|/))([^>]+\.(?:jpe?g|png|gif|svg|xml|js|css)")``
 * Output Format: ``{match1}{cdn_url}{match2}``
 
 ### Web fonts
