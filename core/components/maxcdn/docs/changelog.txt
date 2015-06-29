@@ -1,5 +1,10 @@
 Changelog file for MaxCDN component.
 
+MaxCDN 1.0.3
+====================================
+
+- Remove SSL check from MaxCDN:isDisabled
+
 MaxCDN 1.0.2
 ====================================
 
