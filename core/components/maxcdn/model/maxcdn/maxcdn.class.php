@@ -70,11 +70,8 @@ class MaxCDN {
         return false;
     }
 
-    public function isDisabled($checkSSL = false, $checkTV = false) {
+    public function isDisabled($checkTV = false) {
         if ($this->modx->getOption('mcdn.enabled', null, false) == false) {
-            return true;
-        }
-        if ($checkSSL && isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
             return true;
         }
         if ($checkTV) {
