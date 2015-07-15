@@ -1,5 +1,11 @@
 Changelog file for MaxCDN component.
 
+MaxCDN 1.0.4
+====================================
+
+- Add CDN Sharding support
+- Fix bug with manual file purging
+
 MaxCDN 1.0.3
 ====================================
 
