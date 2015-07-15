@@ -9,8 +9,12 @@ class mcdnRule extends xPDOSimpleObject {
         return '/'.str_replace('/','\/',$input).'/i';
     }
 
-    public function getCdnUrl() {
-        return $this->get('scheme').$this->get('cdn_url').'/';
+    public function getCdnUrl($matchCount = 0) {
+        $urls = $this->get('cdn_url');
+        $cdnUrls = explode(',', $urls);
+        $key = $matchCount % count($cdnUrls);
+        $cdnUrl = $cdnUrls[$key];
 
+        return $this->get('scheme').$cdnUrl.'/';
     }
 }

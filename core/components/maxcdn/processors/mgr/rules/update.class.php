@@ -20,6 +20,8 @@ class mcdnRuleUpdateProcessor extends modObjectUpdateProcessor {
         if ($this->getProperty('all_contexts')) {
             $this->setProperty('context', '');
         }
+        $this->setProperty('cdn_url', implode(',', $this->getProperty('cdn_url')));
+
         return parent::beforeSet();
     }
 }

@@ -80,12 +80,14 @@ Full-page caching is a different configuration and requires a MaxCDN Enteprise p
 7. Disable the MaxCDN Linker plugin and enable the MaxCDN Manager plugin, this will provide an additional button when saving resources that will you to save and then send a purge request to MaxCDN for that particular MODX resource.
 
 
-## Basic CDN Sharding
-CDN sharding is a method whereby assets are served from several different CDN URLs to allow more concurrent requests to be handled by the browser thus resulting in quicker page load times. Although the CDN sharding capabilities are to be expanded on in future releases, you can still implement CDN sharding by file extension (or specific asset folder) with the current Rules Manager.
+## CDN Sharding
+CDN sharding is a method whereby assets are served from several different CDN URLs to allow more concurrent requests to be handled by the browser thus resulting in quicker page load times.
 
-First, you will need to make sure you have several alternative CDN URLs specified in the MaxCDN Control Panel. Then, you can create rules to target links by, for example, file extension - you can use the default rules as a basis for doing this. For each rule you create, you can assign a different CDN URL that will be used. You could have JS files from cdn1.example.com, CSS from cdn2.example.com and images from cdn3.example.com.
+First, you will need to make sure you have several alternative CDN URLs specified in the MaxCDN Control Panel. For each rule you create or update, you can assign multiple CDN URLs that will be used. The assigned CDN URLs will utilize a round-robin assignment on a per-rule basis when matches are found via the MaxCDN Linker plugin. This method means you can have different groups of CDN URLs assigned to different rules.
 
-__Note: If you are using the full-page caching strategy, you can still use the Rules Manager to do basic CDN sharding, just make sure you have the MaxCDN Linker plugin enabled.__
+While this method will also work with SSL domains, you will need to have the Wildcard SSL addon from MaxCDN with a wildcard SSL certificate installed in the MaxCDN dashboard (please note the Wildcard SSL addon is an expensive option so, unfortunately, may not be suitable in a majority of deployments).
+
+__Note: If you are using the full-page caching strategy, you can still use the Rules Manager to do CDN sharding, just make sure you have the MaxCDN Linker plugin enabled.__
 
 ## SSL Support
 

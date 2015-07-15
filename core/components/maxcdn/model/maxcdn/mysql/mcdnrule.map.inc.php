@@ -76,8 +76,7 @@ $xpdo_meta_map['mcdnRule']= array (
     ),
     'cdn_url' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '255',
+      'dbtype' => 'text',
       'phptype' => 'string',
       'null' => false,
       'default' => '',

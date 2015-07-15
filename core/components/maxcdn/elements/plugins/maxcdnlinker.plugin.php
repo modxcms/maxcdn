@@ -27,12 +27,16 @@ switch($eventName) {
         $rules = $modx->getIterator('mcdnRule', $c);
         foreach ($rules as $rule) {
             $callback = function($matches) use ($rule) {
+                static $matchCount = 0;
+
                 $output = $rule->get('output');
                 foreach($matches as $k => $v) {
                     if ($k == 0) continue;
                     $output = str_replace('{match'.$k.'}', $v, $output);
                 }
-                $output = str_replace('{cdn_url}', $rule->getCdnUrl(), $output);
+                $output = str_replace('{cdn_url}', $rule->getCdnUrl($matchCount), $output);
+                $matchCount++;
+
                 return $output;
             };
 

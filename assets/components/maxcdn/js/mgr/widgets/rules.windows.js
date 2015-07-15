@@ -40,6 +40,7 @@ MaxCDN.window.Rule = function(config) {
                         ,anchor: '50%'
                     },{
                         xtype: 'mcdn-combo-cdnurls'
+                        ,id: config.id + 'mcdn-combo-cdnurls'
                         ,name: 'cdn_url'
                         ,fieldLabel: _('mcdn.cdn_url')
                         ,allowBlank: false
@@ -116,6 +117,9 @@ Ext.extend(MaxCDN.window.Rule,MODx.Window, {
             if (Ext.getCmp(w.config.id + 'mcdn-checkbox-all-contexts').getValue() == true) {
                 Ext.getCmp(w.config.id + 'mcdn-combo-context').disable();
             }
+            w.setValues({
+                'cdn_url[]': w.record.cdn_url
+            });
         }
     }
 });
